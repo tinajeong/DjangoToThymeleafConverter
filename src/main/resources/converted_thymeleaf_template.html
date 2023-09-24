@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Django Template Example</title>
+</head>
+<body>
+<h1>Welcome, ${user_name}</h1>
+
+<ul>
+    <th:block th:each="item : ${items}">
+    <li>${item.name} - Price: ${item.price|toMoney}</li>
+    </th:block>
+</ul>
+
+<th:block th:if="${is_vip}">
+<p>You are a VIP member.</p>
+<th:block th:unless="${#bools.isTrue(#vars.previousExpression)}">
+<p>You are a regular member.</p>
+</th:block>
+
+<p>Total Price: ${total_price|toMoney}</p>
+</body>
+</html>

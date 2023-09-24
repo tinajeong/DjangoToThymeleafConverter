@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django Template Example</title>
+</head>
+<body>
+<h1>Welcome, {{ user_name }}</h1>
+
+<ul>
+    {% for item in items %}
+    <li>{{ item.name }} - Price: {{ item.price|toMoney }}</li>
+    {% endfor %}
+</ul>
+
+{% if is_vip %}
+<p>You are a VIP member.</p>
+{% else %}
+<p>You are a regular member.</p>
+{% endif %}
+
+<p>Total Price: {{ total_price|toMoney }}</p>
+</body>
+</html>
